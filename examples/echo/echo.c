@@ -42,9 +42,9 @@
  */
 void onopen(ws_cli_conn_t *client)
 {
+#ifndef DISABLE_VERBOSE
 	char *cli;
 	cli = ws_getaddress(client);
-#ifndef DISABLE_VERBOSE
 	printf("Connection opened, addr: %s\n", cli);
 #endif
 }
@@ -58,9 +58,9 @@ void onopen(ws_cli_conn_t *client)
  */
 void onclose(ws_cli_conn_t *client)
 {
+#ifndef DISABLE_VERBOSE
 	char *cli;
 	cli = ws_getaddress(client);
-#ifndef DISABLE_VERBOSE
 	printf("Connection closed, addr: %s\n", cli);
 #endif
 }
@@ -82,9 +82,9 @@ void onclose(ws_cli_conn_t *client)
 void onmessage(ws_cli_conn_t *client,
 	const unsigned char *msg, uint64_t size, int type)
 {
+#ifndef DISABLE_VERBOSE
 	char *cli;
 	cli = ws_getaddress(client);
-#ifndef DISABLE_VERBOSE
 	printf("I receive a message: %s (size: %" PRId64 ", type: %d), from: %s\n",
 		msg, size, type, cli);
 #endif
